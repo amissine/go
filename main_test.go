@@ -13,6 +13,12 @@ import (
 	"github.com/stellar/go/xdr"
 )
 
+// ExampleHello is my first test of the codebase. I make it fail on purpose.
+func ExampleHello () {
+  fmt.Println("hello")
+  // Output: Hullo
+}
+
 // ExampleDecodeTransaction shows the lowest-level process to decode a base64
 // envelope encoded in base64.
 func ExampleDecodeTransaction() {
