@@ -43,6 +43,7 @@ before_deploy:
 matrix:
   fast_finish: true
   allow_failures:
+    - go: '1.11'
   - go: tip
 notifications:
   slack:
