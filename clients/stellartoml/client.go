@@ -13,6 +13,9 @@ import (
 // GetStellarToml returns stellar.toml file for a given domain
 func (c *Client) GetStellarToml(domain string) (resp *Response, err error) {
 	var hresp *http.Response
+
+  c.UseHTTP = true // AM
+
 	hresp, err = c.HTTP.Get(c.url(domain))
 	if err != nil {
 		err = errors.Wrap(err, "http request errored")

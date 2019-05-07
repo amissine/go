@@ -8,11 +8,15 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 main_test.go
+badd +22 main_test.go
+badd +1 .travis.yml
+badd +19 clients/stellartoml/client.go
+badd +0 clients/federation/client.go
 argglobal
 silent! argdel *
 $argadd main_test.go
-edit main_test.go
+set stal=2
+edit .travis.yml
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -28,13 +32,66 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 22 - ((21 * winheight(0) + 23) / 46)
+let s:l = 1 - ((0 * winheight(0) + 23) / 46)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-22
-normal! 03|
-tabnext 1
+1
+normal! 0
+lcd ~/process/go
+tabedit ~/process/go/clients/federation/client.go
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winminheight=1 winheight=1 winminwidth=1 winwidth=1
+exe '1resize ' . ((&lines * 22 + 24) / 48)
+exe '2resize ' . ((&lines * 22 + 24) / 48)
+argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 117 - ((11 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+117
+normal! 0
+lcd ~/process/go
+wincmd w
+argglobal
+edit ~/process/go/clients/stellartoml/client.go
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 19 - ((2 * winheight(0) + 11) / 22)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+19
+normal! 0
+lcd ~/process/go
+wincmd w
+exe '1resize ' . ((&lines * 22 + 24) / 48)
+exe '2resize ' . ((&lines * 22 + 24) / 48)
+tabnext 2
+set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
 endif

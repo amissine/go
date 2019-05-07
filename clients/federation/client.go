@@ -113,6 +113,8 @@ func (c *Client) getFederationServer(domain string) (string, error) {
 		return "", errors.New("stellar.toml is missing federation server info")
 	}
 
+  c.AllowHTTP = true
+
 	if !c.AllowHTTP && !strings.HasPrefix(stoml.FederationServer, "https://") {
 		return "", errors.New("non-https federation server disallowed")
 	}
