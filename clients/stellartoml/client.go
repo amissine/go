@@ -15,7 +15,7 @@ func (c *Client) GetStellarToml(domain string) (resp *Response, err error) {
 	var hresp *http.Response
 
   c.UseHTTP = true // AM
-  fmt.Println("c.UseHTTP = ", c.UseHTTP)
+  //fmt.Println("c.UseHTTP = ", c.UseHTTP)
 
 	hresp, err = c.HTTP.Get(c.url(domain))
 	if err != nil {

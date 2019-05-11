@@ -10,8 +10,10 @@ endif
 set shortmess=aoO
 badd +22 main_test.go
 badd +1 .travis.yml
-badd +19 clients/stellartoml/client.go
-badd +0 clients/federation/client.go
+badd +18 clients/stellartoml/client.go
+badd +116 clients/federation/client.go
+badd +0 services/bridge/internal/config/main.go
+badd +52 amount/main.go
 argglobal
 silent! argdel *
 $argadd main_test.go
@@ -32,7 +34,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 23) / 46)
+let s:l = 1 - ((0 * winheight(0) + 22) / 45)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -61,12 +63,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 117 - ((11 * winheight(0) + 11) / 22)
+let s:l = 116 - ((10 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-117
-normal! 0
+116
+normal! 026|
 lcd ~/process/go
 wincmd w
 argglobal
@@ -80,7 +82,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 19 - ((2 * winheight(0) + 11) / 22)
+let s:l = 19 - ((7 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -88,6 +90,7 @@ normal! zt
 normal! 0
 lcd ~/process/go
 wincmd w
+2wincmd w
 exe '1resize ' . ((&lines * 22 + 24) / 48)
 exe '2resize ' . ((&lines * 22 + 24) / 48)
 tabnext 2
