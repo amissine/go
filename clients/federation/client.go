@@ -114,6 +114,7 @@ func (c *Client) getFederationServer(domain string) (string, error) {
 	}
 
   c.AllowHTTP = true // AM
+  //fmt.Println("c.AllowHTTP = ", c.AllowHTTP)
 
 	if !c.AllowHTTP && !strings.HasPrefix(stoml.FederationServer, "https://") {
 		return "", errors.New("non-https federation server disallowed")
